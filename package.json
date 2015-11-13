@@ -20,6 +20,18 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "*"
+    "async": "^1.5.0",
+    "mocha": "*",
+    "object-omit": "^1.0.0",
+    "write": "^0.2.1"
+  },
+  "dependencies": {
+    "JSONStream": "^1.0.6",
+    "base-methods": "^0.4.0",
+    "base-options": "^0.5.2",
+    "base-plugins": "^0.4.1",
+    "clone-deep": "^0.2.3",
+    "merge-deep": "^2.0.1",
+    "request": "^2.65.0"
   }
 }
