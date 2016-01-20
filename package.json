@@ -1,7 +1,7 @@
 {
   "name": "npm-info",
   "description": "Base class for downloading data from the npm registry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/doowb/npm-info",
   "author": "Brian Woodward (https://github.com/doowb)",
   "repository": "doowb/npm-info",
