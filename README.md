@@ -1,23 +1,23 @@
-# npm-base [![NPM version](https://img.shields.io/npm/v/npm-base.svg)](https://www.npmjs.com/package/npm-base) [![Build Status](https://img.shields.io/travis/doowb/npm-base.svg)](https://travis-ci.org/doowb/npm-base)
+# npm-info [![NPM version](https://img.shields.io/npm/v/npm-info.svg)](https://www.npmjs.com/package/npm-info) [![Build Status](https://img.shields.io/travis/doowb/npm-info.svg)](https://travis-ci.org/doowb/npm-info)
 
 > Base class for downloading data from the npm registry
 
 Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm i npm-base --save
+$ npm i npm-info --save
 ```
 
 ## Usage
 
 ```js
-var npm = require('npm-base');
+var npm = require('npm-info');
 ```
 
 ## API
 
-### [NpmBase](index.js#L28)
-NpmBase constructor. Create an instance to work with maintainer and repository information.
+### [NpmInfo](index.js#L26)
+NpmInfo constructor. Create an instance to work with maintainer and repository information.
 
 
 
@@ -26,11 +26,11 @@ NpmBase constructor. Create an instance to work with maintainer and repository i
 
 
 ```js
-var npm = new NpmBase();
+var npm = new NpmInfo();
 ```
 
 
-### [.view](index.js#L63)
+### [.view](index.js#L61)
 Create a new instance of `View` or get an existing instance to work with npm couchdb views.
 
 
@@ -48,7 +48,7 @@ var view = npm.view('byUser');
 ```
 
 
-### [.list](index.js#L86)
+### [.list](index.js#L84)
 Create a new instance of `List` or get an existing instance to work with npm couchdb list.
 
 
@@ -67,7 +67,7 @@ var list = npm.list('sortCount', 'byUser');
 ```
 
 
-### [.repo](index.js#L117)
+### [.repo](index.js#L115)
 Create an instance of a `repo` to work with.
 
 
@@ -85,7 +85,7 @@ var repo =  npm.repo('micromatch');
 ```
 
 
-### [.maintainer](index.js#L138)
+### [.maintainer](index.js#L136)
 Create an instance of a `maintainer` to work with.
 
 
@@ -116,7 +116,7 @@ $ npm i -d && npm test
 ```
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/npm-base/issues/new).
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/npm-info/issues/new).
 
 ## Author
 **Brian Woodward**
