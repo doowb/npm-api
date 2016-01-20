@@ -1,7 +1,7 @@
 /*!
- * npm-base <https://github.com/doowb/npm-base>
+ * npm-info <https://github.com/doowb/npm-info>
  *
- * Copyright (c) 2015, Brian Woodward.
+ * Copyright (c) 2016, Brian Woodward.
  * Licensed under the MIT License.
  */
 
@@ -15,17 +15,17 @@ var Repo = require('./lib/models/Repo');
 var Maintainer = require('./lib/models/maintainer');
 
 /**
- * NpmBase constructor. Create an instance to work with maintainer and repository information.
+ * NpmInfo constructor. Create an instance to work with maintainer and repository information.
  *
  * ```js
- * var npm = new NpmBase();
+ * var npm = new NpmInfo();
  * ```
  * @api public
  */
 
-function NpmBase() {
-  if (!(this instanceof NpmBase)) {
-    return new NpmBase();
+function NpmInfo() {
+  if (!(this instanceof NpmInfo)) {
+    return new NpmInfo();
   }
   Base.call(this);
   this.options = this.options || {};
@@ -43,7 +43,7 @@ function NpmBase() {
  * Extend `Base`
  */
 
-Base.extend(NpmBase);
+Base.extend(NpmInfo);
 
 /**
  * Create a new instance of `View` or get an existing instance to work
@@ -58,7 +58,7 @@ Base.extend(NpmBase);
  * @api public
  */
 
-NpmBase.prototype.view = function(name) {
+NpmInfo.prototype.view = function(name) {
   if (this.has(['views', name])) {
     return this.get(['views', name]);
   }
@@ -81,7 +81,7 @@ NpmBase.prototype.view = function(name) {
  * @api public
  */
 
-NpmBase.prototype.list = function(name, view) {
+NpmInfo.prototype.list = function(name, view) {
   var viewName = view;
   if (typeof view === 'object') {
     viewName = view.name;
@@ -112,7 +112,7 @@ NpmBase.prototype.list = function(name, view) {
  * @api public
  */
 
-NpmBase.prototype.repo = function(name) {
+NpmInfo.prototype.repo = function(name) {
   if (this.has(['repos', name])) {
     return this.get(['repos', name]);
   }
@@ -133,7 +133,7 @@ NpmBase.prototype.repo = function(name) {
  * @api public
  */
 
-NpmBase.prototype.maintainer = function(name) {
+NpmInfo.prototype.maintainer = function(name) {
   if (this.has(['maintainers', name])) {
     return this.get(['maintainers', name]);
   }
@@ -143,7 +143,7 @@ NpmBase.prototype.maintainer = function(name) {
 };
 
 /**
- * Exposes `NpmBase`
+ * Exposes `NpmInfo`
  */
 
-module.exports = NpmBase;
+module.exports = NpmInfo;

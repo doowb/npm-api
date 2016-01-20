@@ -1,3 +1,10 @@
+/*!
+ * npm-info <https://github.com/doowb/npm-info>
+ *
+ * Copyright (c) 2016, Brian Woodward.
+ * Licensed under the MIT License.
+ */
+
 'use strict';
 
 var npm = require('../')();
