@@ -20,20 +20,22 @@
   "scripts": {
     "test": "mocha"
   },
-  "devDependencies": {
-    "async": "^1.5.0",
-    "mocha": "*",
-    "object-omit": "^1.0.0",
-    "write": "^0.2.1"
-  },
   "dependencies": {
-    "JSONStream": "^1.0.6",
+    "JSONStream": "^1.0.7",
     "base": "^0.6.4",
-    "base-options": "^0.5.2",
+    "base-options": "^0.5.5",
     "base-plugins": "^0.4.1",
-    "clone-deep": "^0.2.3",
+    "clone-deep": "^0.2.4",
     "download-stats": "^0.1.0",
-    "merge-deep": "^2.0.1",
-    "request": "^2.65.0"
+    "merge-deep": "^2.0.2",
+    "request": "^2.67.0"
+  },
+  "verb": {
+    "related": {
+      "list": [
+        "download-stats",
+        "base"
+      ]
+    }
   }
 }
