@@ -11,7 +11,7 @@ $ npm i npm-info --save
 ## Usage
 
 ```js
-var npm = require('npm-info');
+var NpmInfo = require('npm-info');
 ```
 
 ## API
