@@ -11,7 +11,7 @@ var Base = require('base').namespace('cache');
 var utils = require('./lib/utils');
 var List = require('./lib/list');
 var View = require('./lib/view');
-var Repo = require('./lib/models/Repo');
+var Repo = require('./lib/models/repo');
 var Maintainer = require('./lib/models/maintainer');
 
 /**
