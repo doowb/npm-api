@@ -8,9 +8,7 @@
 'use strict';
 
 var Base = require('base').namespace('cache');
-var plugin = require('base-plugins');
-var option = require('base-options');
-
+var utils = require('./lib/utils');
 var List = require('./lib/list');
 var View = require('./lib/view');
 var Repo = require('./lib/models/Repo');
@@ -32,8 +30,8 @@ function NpmBase() {
   Base.call(this);
   this.options = this.options || {};
   this.cache = this.cache || {};
-  this.use(plugin());
-  this.use(option());
+  this.use(utils.plugin());
+  this.use(utils.option());
 
   this.define('List', List);
   this.define('View', View);

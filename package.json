@@ -10,8 +10,8 @@
   },
   "license": "MIT",
   "files": [
-    "lib/",
-    "index.js"
+    "index.js",
+    "lib/"
   ],
   "main": "index.js",
   "engines": {
@@ -27,6 +27,7 @@
     "base-plugins": "^0.4.1",
     "clone-deep": "^0.2.4",
     "download-stats": "^0.1.0",
+    "lazy-cache": "^1.0.3",
     "merge-deep": "^2.0.2",
     "request": "^2.67.0"
   },
