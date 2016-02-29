@@ -22,14 +22,14 @@
   },
   "dependencies": {
     "JSONStream": "^1.0.7",
-    "base": "^0.6.4",
-    "base-options": "^0.5.5",
-    "base-plugins": "^0.4.1",
+    "base": "^0.7.9",
+    "base-option": "^0.6.1",
+    "base-plugins": "^0.4.4",
     "clone-deep": "^0.2.4",
-    "download-stats": "^0.1.0",
+    "download-stats": "^0.2.1",
     "lazy-cache": "^1.0.3",
     "merge-deep": "^2.0.2",
-    "request": "^2.67.0"
+    "request": "^2.69.0"
   },
   "verb": {
     "related": {
