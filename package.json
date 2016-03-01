@@ -25,10 +25,12 @@
     "base": "^0.7.9",
     "base-option": "^0.6.1",
     "base-plugins": "^0.4.4",
+    "base-store": "^0.4.1",
     "clone-deep": "^0.2.4",
-    "download-stats": "^0.2.1",
+    "download-stats": "^0.2.2",
     "lazy-cache": "^1.0.3",
     "merge-deep": "^2.0.2",
+    "moment": "^2.11.2",
     "request": "^2.69.0"
   },
   "verb": {
