@@ -7,7 +7,20 @@
 
 'use strict';
 
-var npm = require('../')();
+// // default using memory store
+// var npm = require('../')();
+
+// // using data store
+// var npm = require('../')({
+//   store: require('../lib/stores/data')()
+// });
+
+// using firebase store
+var Firebase = require('firebase');
+var npm = require('../')({
+  store: require('../lib/stores/firebase')(new Firebase('https://assemblebot.firebaseio.com/stats'))
+});
+
 var repo = npm.repo('micromatch');
 repo.downloads(function(err, downloads) {
   if (err) return console.error(err);
@@ -25,6 +38,7 @@ repo.downloads(function(err, downloads) {
         repo.last(1, function(err, total) {
           if (err) return console.error(err);
           console.log('last day:', total);
+          process.exit();
         });
       });
     });
