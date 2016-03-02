@@ -27,11 +27,14 @@
     "base-plugins": "^0.4.4",
     "base-store": "^0.4.1",
     "clone-deep": "^0.2.4",
+    "data-store": "^0.15.4",
     "download-stats": "^0.2.2",
+    "get-value": "^2.0.3",
     "lazy-cache": "^1.0.3",
     "merge-deep": "^2.0.2",
     "moment": "^2.11.2",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "set-value": "^0.3.3"
   },
   "verb": {
     "related": {
