@@ -13,6 +13,7 @@ var List = require('./lib/list');
 var View = require('./lib/view');
 var Repo = require('./lib/models/repo');
 var Maintainer = require('./lib/models/maintainer');
+var Memory = require('./lib/stores/memory');
 
 /**
  * NpmInfo constructor. Create an instance to work with maintainer and repository information.
@@ -23,12 +24,11 @@ var Maintainer = require('./lib/models/maintainer');
  * @api public
  */
 
-function NpmInfo() {
+function NpmInfo(options) {
   if (!(this instanceof NpmInfo)) {
-    return new NpmInfo();
+    return new NpmInfo(options);
   }
-  Base.call(this);
-  this.options = this.options || {};
+  Base.call(this, null, options);
   this.cache = this.cache || {};
   this.use(utils.plugin());
   this.use(utils.option());
@@ -37,6 +37,10 @@ function NpmInfo() {
   this.define('View', View);
   this.define('Repo', Repo);
   this.define('Maintainer', Maintainer);
+
+  console.log(this.options.store);
+  var store = typeof this.options.store === 'undefined' ? new Memory() : this.options.store;
+  this.define('store', store);
 }
 
 /**
@@ -116,7 +120,7 @@ NpmInfo.prototype.repo = function(name) {
   if (this.has(['repos', name])) {
     return this.get(['repos', name]);
   }
-  var repo = new Repo(name);
+  var repo = new Repo(name, this.store);
   this.set(['repos', name], repo);
   return repo;
 };
@@ -137,7 +141,7 @@ NpmInfo.prototype.maintainer = function(name) {
   if (this.has(['maintainers', name])) {
     return this.get(['maintainers', name]);
   }
-  var maintainer = new Maintainer(name);
+  var maintainer = new Maintainer(name, this.store);
   this.set(['maintainers', name], maintainer);
   return maintainer;
 };
