@@ -21,9 +21,9 @@
     "test": "mocha"
   },
   "dependencies": {
-    "JSONStream": "^1.0.7",
+    "JSONStream": "^1.1.1",
     "base": "^0.7.9",
-    "base-option": "^0.6.1",
+    "base-option": "^0.6.2",
     "base-plugins": "^0.4.4",
     "base-store": "^0.4.1",
     "clone-deep": "^0.2.4",
@@ -53,5 +53,8 @@
     "repos",
     "repositories",
     "repository"
-  ]
+  ],
+  "devDependencies": {
+    "firebase": "^2.4.1"
+  }
 }
