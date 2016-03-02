@@ -38,7 +38,6 @@ function NpmInfo(options) {
   this.define('Repo', Repo);
   this.define('Maintainer', Maintainer);
 
-  console.log(this.options.store);
   var store = typeof this.options.store === 'undefined' ? new Memory() : this.options.store;
   this.define('store', store);
 }
