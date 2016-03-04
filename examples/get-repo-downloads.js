@@ -8,12 +8,12 @@
 'use strict';
 
 // default using memory store
-var npm = require('../')();
+// var npm = require('../')();
 
-// // using data store
-// var npm = require('../')({
-//   store: require('../lib/stores/data')()
-// });
+// using data store
+var npm = require('../')({
+  store: require('../lib/stores/data')()
+});
 
 // // using firebase store
 // var Firebase = require('firebase');
