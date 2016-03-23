@@ -9,7 +9,9 @@
 
 var npm = require('../')();
 var maintainer = npm.maintainer('doowb');
-maintainer.repos(function (err, repos) {
-  if (err) return console.error(err);
-  console.log(repos);
-});
+maintainer.repos()
+  .then(function (repos) {
+    console.log(repos);
+  }, function(err) {
+    console.error(err);
+  });
