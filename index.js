@@ -16,20 +16,20 @@ var Maintainer = require('./lib/models/maintainer');
 var Memory = require('./lib/stores/memory');
 
 /**
- * NpmInfo constructor. Create an instance to work with maintainer and repository information.
+ * NpmApi constructor. Create an instance to work with maintainer and repository information.
  *
  * ```js
- * var npm = new NpmInfo();
+ * var npm = new NpmApi();
  * ```
  * @api public
  */
 
-function NpmInfo(options) {
-  if (!(this instanceof NpmInfo)) {
-    return new NpmInfo(options);
+function NpmApi(options) {
+  if (!(this instanceof NpmApi)) {
+    return new NpmApi(options);
   }
   Base.call(this, null, options);
-  this.is('npminfo');
+  this.is('npmapi');
 
   this.use(utils.plugin());
   this.use(utils.option());
@@ -47,7 +47,7 @@ function NpmInfo(options) {
  * Extend `Base`
  */
 
-Base.extend(NpmInfo);
+Base.extend(NpmApi);
 
 /**
  * Create a new instance of `View` or get an existing instance to work
@@ -62,7 +62,7 @@ Base.extend(NpmInfo);
  * @api public
  */
 
-NpmInfo.prototype.view = function(name) {
+NpmApi.prototype.view = function(name) {
   if (this.has(['views', name])) {
     return this.get(['views', name]);
   }
@@ -85,7 +85,7 @@ NpmInfo.prototype.view = function(name) {
  * @api public
  */
 
-NpmInfo.prototype.list = function(name, view) {
+NpmApi.prototype.list = function(name, view) {
   var viewName = view;
   if (typeof view === 'object') {
     viewName = view.name;
@@ -116,7 +116,7 @@ NpmInfo.prototype.list = function(name, view) {
  * @api public
  */
 
-NpmInfo.prototype.repo = function(name) {
+NpmApi.prototype.repo = function(name) {
   if (this.has(['repos', name])) {
     return this.get(['repos', name]);
   }
@@ -138,7 +138,7 @@ NpmInfo.prototype.repo = function(name) {
  * @api public
  */
 
-NpmInfo.prototype.maintainer = function(name) {
+NpmApi.prototype.maintainer = function(name) {
   if (this.has(['maintainers', name])) {
     return this.get(['maintainers', name]);
   }
@@ -149,7 +149,7 @@ NpmInfo.prototype.maintainer = function(name) {
 };
 
 /**
- * Exposes `NpmInfo`
+ * Exposes `NpmApi`
  */
 
-module.exports = NpmInfo;
+module.exports = NpmApi;

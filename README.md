@@ -13,19 +13,19 @@ $ npm install npm-api --save
 ## Usage
 
 ```js
-var NpmInfo = require('npm-api');
+var NpmApi = require('npm-api');
 ```
 
 ## API
 
-### [NpmInfo](index.js#L27)
+### [NpmApi](index.js#L27)
 
-NpmInfo constructor. Create an instance to work with maintainer and repository information.
+NpmApi constructor. Create an instance to work with maintainer and repository information.
 
 **Example**
 
 ```js
-var npm = new NpmInfo();
+var npm = new NpmApi();
 ```
 
 ### [.view](index.js#L65)
