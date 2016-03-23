@@ -7,13 +7,15 @@
 
 'use strict';
 
+var co = require('co');
+
 // default using memory store
-// var npm = require('../')();
+var npm = require('../')();
 
 // using data store
-var npm = require('../')({
-  store: require('../lib/stores/data')()
-});
+// var npm = require('../')({
+//   store: require('../lib/stores/data')()
+// });
 
 // // using firebase store
 // var Firebase = require('firebase');
@@ -22,25 +24,16 @@ var npm = require('../')({
 // });
 
 var repo = npm.repo('micromatch');
-repo.downloads(function(err, downloads) {
-  if (err) return console.error(err);
-  console.log(downloads.length + ' days of downloads have been pulled for micromatch');
+co(function* () {
+
+  var downloads = yield repo.downloads();
+  console.log(downloads.length + ' days of downloads have been pulled for ' + repo.name);
   console.log();
-  repo.total(function(err, total) {
-    if (err) return console.error(err);
-    console.log('total:', total);
-    repo.last(30, function(err, total) {
-      if (err) return console.error(err);
-      console.log('last 30 days:', total);
-      repo.last(7, function(err, total) {
-        if (err) return console.error(err);
-        console.log('last 7 days:', total);
-        repo.last(1, function(err, total) {
-          if (err) return console.error(err);
-          console.log('last day:', total);
-          process.exit();
-        });
-      });
-    });
-  });
+
+  console.log('total:', yield repo.total());
+  console.log('last 30 days:', yield repo.last(30));
+  console.log('last 7 days:', yield repo.last(7));
+  console.log('last day:', yield repo.last(1));
+
+  process.exit();
 });
