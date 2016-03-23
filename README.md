@@ -89,6 +89,252 @@ Create an instance of a `maintainer` to work with.
 var maintainer =  npm.maintainer('doowb');
 ```
 
+## Models
+
+### [BaseModel](lib/models/base.js#L22)
+
+Base model to include common plugins.
+
+**Params**
+
+* `store` **{Object}**: Cache store intance to use.
+
+### [Maintainer](lib/models/maintainer.js#L25)
+
+Maintainer constructor. Create an instance of an npm maintainer by maintainer name.
+
+**Params**
+
+* `name` **{String}**: Name of the npm maintainer to get information about.
+* `store` **{Object}**: Optional cache store instance for caching results. Defaults to a memory store.
+
+**Example**
+
+```js
+var maintainer = new Maintainer('doowb');
+```
+
+### [.repos](lib/models/maintainer.js#L56)
+
+Get the repositories owned by this maintainer.
+
+* `returns` **{Promise}**: Returns array of repository names when promise resolves.
+
+**Example**
+
+```js
+maintainer.repos()
+  .then(function(repos) {
+    console.log(repos);
+  }, function(err) {
+    console.error(err);
+  });
+```
+
+### [Repo](lib/models/repo.js#L26)
+
+Repo constructor. Create an instance of an npm repo by repo name.
+
+**Params**
+
+* `name` **{String}**: Name of the npm repo to get information about.
+* `store` **{Object}**: Optional cache store instance for caching results. Defaults to a memory store.
+
+**Example**
+
+```js
+var repo = new Repo('micromatch');
+```
+
+### [.package](lib/models/repo.js#L57)
+
+Get the repo's published package.json.
+
+* `returns` **{Promise}**: Returns the package.json object when promise resolves.
+
+**Example**
+
+```js
+repo.package()
+  .then(function(pkg) {
+    console.log(pkg);
+  }, function(err) {
+    console.error(err);
+  });
+```
+
+### [.version](lib/models/repo.js#L87)
+
+Get the repo's published package.json value for the specified version.
+
+**Params**
+
+* `version` **{String}**: Specific version to retrieve.
+* `returns` **{Promise}**: Returns the package.json object for the specified version when promise resolves.
+
+**Example**
+
+```js
+repo.version('0.2.0')
+  .then(function(pkg) {
+    console.log(pkg);
+  }, function(err) {
+    console.error(err);
+  });
+```
+
+### [.dependencies](lib/models/repo.js#L116)
+
+Get the repo's dependencies for the specified version.
+
+**Params**
+
+* `version` **{String}**: Specific version to retrieve. Defaults to `latest`.
+* `returns` **{Promise}**: Returns the dependencies object for the specified version when promise resolves.
+
+**Example**
+
+```js
+repo.dependencies()
+  .then(function(dependencies) {
+    console.log(dependencies);
+  }, function(err) {
+    console.error(err);
+  });
+```
+
+### [.devDependencies](lib/models/repo.js#L136)
+
+Get the repo's devDependencies for the specified version.
+
+**Params**
+
+* `version` **{String}**: Specific version to retrieve. Defaults to `latest`.
+* `returns` **{Promise}**: Returns the devDependencies object for the specified version when promise resolves.
+
+**Example**
+
+```js
+repo.devDependencies()
+  .then(function(devDependencies) {
+    console.log(devDependencies);
+  }, function(err) {
+    console.error(err);
+  });
+```
+
+### [.prop](lib/models/repo.js#L157)
+
+Get the specified property from the repo's package.json for the specified version.
+
+**Params**
+
+* `prop` **{String}**: Name of the property to get.
+* `version` **{String}**: Specific version to retrieve. Defaults to `latest`.
+* `returns` **{Promise}**: Returns the property for the specified version when promise resolves.
+
+**Example**
+
+```js
+repo.prop('author')
+  .then(function(author) {
+    console.log(author);
+  }, function(err) {
+    console.error(err);
+  });
+```
+
+## Registry queries
+
+### [View](lib/view.js#L26)
+
+View constructor. Create an instance of a view associated with a couchdb view in the npm registry.
+
+**Params**
+
+* `name` **{String}**: Name of couchdb view to use.
+* `returns` **{Object}**: instance of `View`
+
+**Example**
+
+```js
+var view = new View('dependedUpon');
+```
+
+### [.query](lib/view.js#L51)
+
+Query the couchdb view with the provided parameters.
+
+**Params**
+
+* `params` **{Object}**: URL query parameters to pass along to the couchdb view.
+* `returns` **{Promise}**: Results of the query when promise is resolved.
+
+**Example**
+
+```js
+view.query({ group_level: 2, startkey: JSON.stringify(['micromatch']), endkey: JSON.stringify(['micromatch', {}])})
+  .then(function(results) {
+    console.log(results);
+  }, function(err) {
+    console.log(err);
+  });
+```
+
+### [.url](lib/view.js#L77)
+
+Build a formatted url with the provided parameters.
+
+**Params**
+
+* `params` **{Object}**: URL query parameters.
+* `returns` **{String}**: formatted url string
+
+### [List](lib/list.js#L27)
+
+List constructor. Create an instance of a list associated with a couchdb list in the npm registry.
+
+**Params**
+
+* `name` **{String}**: Name of couchdb list to use.
+* `view` **{Object}**: Instance of a View to use with the list.
+* `returns` **{Object}**: instance of `List`
+
+**Example**
+
+```js
+var list = new List('dependedUpon', view);
+```
+
+### [.query](lib/list.js#L53)
+
+Query the couchdb list with the provided parameters.
+
+**Params**
+
+* `params` **{Object}**: URL query parameters to pass along to the couchdb list.
+* `returns` **{Promise}**: Results of the query when promise is resolved.
+
+**Example**
+
+```js
+list.query({ key: JSON.stringify(['micromatch']) })
+  .then(function(results) {
+    console.log(results);
+  }, function(err) {
+    console.log(err);
+  });
+```
+
+### [.url](lib/list.js#L80)
+
+Build a formatted url with the provided parameters.
+
+**Params**
+
+* `params` **{Object}**: URL query parameters.
+* `returns` **{String}**: formatted url string
+
 ## Related projects
 
 * [base](https://www.npmjs.com/package/base): base is the foundation for creating modular, unit testable and highly pluggable node.js applications, starting… [more](https://www.npmjs.com/package/base) | [homepage](https://github.com/node-base/base)
