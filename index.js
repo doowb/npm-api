@@ -29,7 +29,8 @@ function NpmInfo(options) {
     return new NpmInfo(options);
   }
   Base.call(this, null, options);
-  this.cache = this.cache || {};
+  this.is('npminfo');
+
   this.use(utils.plugin());
   this.use(utils.option());
 
@@ -121,6 +122,7 @@ NpmInfo.prototype.repo = function(name) {
   }
   var repo = new Repo(name, this.store);
   this.set(['repos', name], repo);
+  this.run(repo);
   return repo;
 };
 
@@ -142,6 +144,7 @@ NpmInfo.prototype.maintainer = function(name) {
   }
   var maintainer = new Maintainer(name, this.store);
   this.set(['maintainers', name], maintainer);
+  this.run(maintainer);
   return maintainer;
 };
 
