@@ -1,7 +1,7 @@
 {
   "name": "npm-api",
   "description": "Base class for retrieving data from the npm registry.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "homepage": "https://github.com/doowb/npm-api",
   "author": "Brian Woodward (https://github.com/doowb)",
   "repository": "doowb/npm-api",
