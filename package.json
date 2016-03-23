@@ -1,12 +1,12 @@
 {
-  "name": "npm-info",
-  "description": "Base class for downloading data from the npm registry",
+  "name": "npm-api",
+  "description": "Base class for retrieving data from the npm registry.",
   "version": "0.4.0",
-  "homepage": "https://github.com/doowb/npm-info",
+  "homepage": "https://github.com/doowb/npm-api",
   "author": "Brian Woodward (https://github.com/doowb)",
-  "repository": "doowb/npm-info",
+  "repository": "doowb/npm-api",
   "bugs": {
-    "url": "https://github.com/doowb/npm-info/issues"
+    "url": "https://github.com/doowb/npm-api/issues"
   },
   "license": "MIT",
   "files": [
@@ -60,12 +60,13 @@
     }
   },
   "keywords": [
+    "api",
     "base",
     "downloads",
-    "info",
     "maintainer",
     "maintainers",
     "npm",
+    "npm-api",
     "package",
     "repo",
     "repos",

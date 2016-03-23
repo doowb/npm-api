@@ -1,19 +1,19 @@
-# npm-info [![NPM version](https://img.shields.io/npm/v/npm-info.svg)](https://www.npmjs.com/package/npm-info) [![Build Status](https://img.shields.io/travis/doowb/npm-info.svg)](https://travis-ci.org/doowb/npm-info)
+# npm-api [![NPM version](https://img.shields.io/npm/v/npm-api.svg)](https://www.npmjs.com/package/npm-api) [![Build Status](https://img.shields.io/travis/doowb/npm-api.svg)](https://travis-ci.org/doowb/npm-api)
 
-> Base class for downloading data from the npm registry
+> Base class for retrieving data from the npm registry.
 
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install npm-info --save
+$ npm install npm-api --save
 ```
 
 ## Usage
 
 ```js
-var NpmInfo = require('npm-info');
+var NpmInfo = require('npm-api');
 ```
 
 ## API
@@ -96,17 +96,17 @@ var maintainer =  npm.maintainer('doowb');
 
 ## Contributing
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/npm-info/issues/new).
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/doowb/npm-api/issues/new).
 
 ## Building docs
 
-Generate readme and API documentation with [verb][]:
+Generate readme and API documentation with [verb](https://github.com/verbose/verb):
 
 ```sh
 $ npm install verb && npm run docs
 ```
 
-Or, if [verb][] is installed globally:
+Or, if [verb](https://github.com/verbose/verb) is installed globally:
 
 ```sh
 $ verb
@@ -130,7 +130,7 @@ $ npm install -d && npm test
 ## License
 
 Copyright © 2016 [Brian Woodward](https://github.com/doowb)
-Released under the [MIT license](https://github.com/doowb/npm-info/blob/master/LICENSE).
+Released under the [MIT license](https://github.com/doowb/npm-api/blob/master/LICENSE).
 
 ***
 
