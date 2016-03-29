@@ -8,20 +8,7 @@
 'use strict';
 
 var co = require('co');
-
-// default using memory store
 var npm = require('../')();
-
-// using data store
-// var npm = require('../')({
-//   store: require('../lib/stores/data')()
-// });
-
-// // using firebase store
-// var Firebase = require('firebase');
-// var npm = require('../')({
-//   store: require('../lib/stores/firebase')(new Firebase('https://assemblebot.firebaseio.com/stats'))
-// });
 
 var repo = npm.repo('micromatch');
 co(function* () {
