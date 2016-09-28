@@ -21,20 +21,20 @@
     "test": "mocha"
   },
   "dependencies": {
-    "JSONStream": "^1.1.1",
-    "base": "^0.8.1",
-    "base-option": "^0.7.0",
-    "base-plugins": "^0.4.6",
+    "JSONStream": "^1.2.1",
+    "base": "^0.11.1",
+    "base-option": "^0.8.4",
+    "base-plugins": "^0.4.13",
     "clone-deep": "^0.2.4",
     "co": "^4.6.0",
-    "data-store": "^0.15.5",
-    "download-stats": "^0.2.2",
-    "get-value": "^2.0.3",
-    "lazy-cache": "^1.0.3",
-    "merge-deep": "^2.0.2",
-    "moment": "^2.12.0",
-    "request": "^2.69.0",
-    "set-value": "^0.3.3"
+    "data-store": "^0.16.1",
+    "download-stats": "^0.3.0",
+    "get-value": "^2.0.6",
+    "lazy-cache": "^2.0.1",
+    "merge-deep": "^3.0.0",
+    "moment": "^2.15.1",
+    "request": "^2.75.0",
+    "set-value": "^0.4.0"
   },
   "verb": {
     "run": true,
@@ -74,7 +74,11 @@
     "repository"
   ],
   "devDependencies": {
+    "co-limiter": "^1.0.3",
     "firebase": "^2.4.1",
-    "gulp-format-md": "^0.1.7"
+    "gulp-format-md": "^0.1.7",
+    "minimist": "^1.2.0",
+    "thunkify": "^2.1.2",
+    "write-json": "^0.2.2"
   }
 }
