@@ -11,7 +11,7 @@
   "license": "MIT",
   "files": [
     "index.js",
-    "lib/"
+    "lib"
   ],
   "main": "index.js",
   "engines": {
@@ -36,28 +36,14 @@
     "request": "^2.75.0",
     "set-value": "^0.4.0"
   },
-  "verb": {
-    "run": true,
-    "toc": false,
-    "layout": "default",
-    "tasks": [
-      "readme"
-    ],
-    "plugins": [
-      "gulp-format-md"
-    ],
-    "related": {
-      "list": [
-        "download-stats",
-        "base"
-      ]
-    },
-    "reflinks": [
-      "verb"
-    ],
-    "lint": {
-      "reflinks": true
-    }
+  "devDependencies": {
+    "co-limiter": "^1.0.3",
+    "firebase": "^2.4.1",
+    "gulp-format-md": "^0.1.7",
+    "minimist": "^1.2.0",
+    "mocha": "^3.1.0",
+    "thunkify": "^2.1.2",
+    "write-json": "^0.2.2"
   },
   "keywords": [
     "api",
@@ -73,13 +59,27 @@
     "repositories",
     "repository"
   ],
-  "devDependencies": {
-    "co-limiter": "^1.0.3",
-    "firebase": "^2.4.1",
-    "gulp-format-md": "^0.1.7",
-    "minimist": "^1.2.0",
-    "mocha": "^3.1.0",
-    "thunkify": "^2.1.2",
-    "write-json": "^0.2.2"
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "base",
+        "download-stats"
+      ]
+    },
+    "reflinks": [
+      "verb"
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }
