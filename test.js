@@ -51,6 +51,13 @@ describe('npm-api', function() {
       assert.equal(repo.name, 'assemble');
     });
 
+    it('should escape names', function() {
+      var repo = npm.repo('lodash.get');
+      assert(repo);
+      assert.equal(repo.name, 'lodash.get');
+      assert.equal(repo instanceof npm.Repo, true);
+    });
+
     it('should cache repo instances', function() {
       var repo = npm.repo('assemble');
       assert(repo);
