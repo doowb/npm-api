@@ -117,11 +117,12 @@ NpmApi.prototype.list = function(name, view) {
  */
 
 NpmApi.prototype.repo = function(name) {
-  if (this.has(['repos', name])) {
-    return this.get(['repos', name]);
+  var escaped = name.split('.').join('\\\\.');
+  if (this.has(['repos', escaped])) {
+    return this.get(['repos', escaped]);
   }
   var repo = new Repo(name, this.store);
-  this.set(['repos', name], repo);
+  this.set(['repos', escaped], repo);
   this.run(repo);
   return repo;
 };
