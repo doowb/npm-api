@@ -76,4 +76,18 @@ describe('npm-api', function() {
         .catch(cb);
     });
   });
+
+  describe('view', function() {
+    it('throw an error', function() {
+      var view = npm.view('byUser');
+      return view.query({key: 'doowb'})
+        .then(function(results) {
+          throw new Error('expected an error');
+        })
+        .catch(function(err) {
+          assert(err);
+          assert.equal(err.message, 'invalid_json');
+        });
+    });
+  });
 });
