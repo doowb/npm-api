@@ -28,22 +28,17 @@
     "clone-deep": "^0.2.4",
     "co": "^4.6.0",
     "data-store": "^0.16.1",
-    "download-stats": "^0.3.0",
+    "download-stats": "^0.3.2",
     "get-value": "^2.0.6",
-    "lazy-cache": "^2.0.1",
+    "lazy-cache": "^2.0.2",
     "merge-deep": "^3.0.0",
-    "moment": "^2.15.1",
-    "request": "^2.75.0",
+    "moment": "^2.16.0",
+    "request": "^2.78.0",
     "set-value": "^0.4.0"
   },
   "devDependencies": {
-    "co-limiter": "^1.0.3",
-    "firebase": "^2.4.1",
-    "gulp-format-md": "^0.1.7",
-    "minimist": "^1.2.0",
-    "mocha": "^3.1.0",
-    "thunkify": "^2.1.2",
-    "write-json": "^0.2.2"
+    "gulp-format-md": "^0.1.11",
+    "mocha": "^3.1.2"
   },
   "keywords": [
     "api",
