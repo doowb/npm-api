@@ -1,9 +1,14 @@
 sudo: false
+os:
+  - linux
+  - osx
 language: node_js
 node_js:
-  - 'node'
+  - node
   - '8'
+  - '7'
   - '6'
+  - '5'
   - '4'
-matrix:
-  fast_finish: true
+  - '0.12'
+  - '0.10'
