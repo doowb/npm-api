@@ -1,4 +1,4 @@
-# npm-api [![NPM version](https://img.shields.io/npm/v/npm-api.svg?style=flat)](https://www.npmjs.com/package/npm-api) [![NPM monthly downloads](https://img.shields.io/npm/dm/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api)  [![NPM total downloads](https://img.shields.io/npm/dt/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api) [![Linux Build Status](https://img.shields.io/travis/doowb/npm-api.svg?style=flat&label=Travis)](https://travis-ci.org/doowb/npm-api)
+# npm-api [![NPM version](https://img.shields.io/npm/v/npm-api.svg?style=flat)](https://www.npmjs.com/package/npm-api) [![NPM monthly downloads](https://img.shields.io/npm/dm/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api)  [![NPM total downloads](https://img.shields.io/npm/dt/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api) [![Linux Build Status](https://img.shields.io/travis/doowb/npm-api.svg?style=flat&label=Travis)](https://travis-ci.org/doowb/npm-api) [![Windows Build Status](https://img.shields.io/appveyor/ci/doowb/npm-api.svg?style=flat&label=AppVeyor)](https://ci.appveyor.com/project/doowb/npm-api)
 
 > Base class for retrieving data from the npm registry.
 
