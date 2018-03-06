@@ -28,7 +28,7 @@
     "clone-deep": "^0.2.4",
     "co": "^4.6.0",
     "data-store": "^0.16.1",
-    "download-stats": "^0.3.2",
+    "download-stats": "^0.3.4",
     "get-value": "^2.0.6",
     "lazy-cache": "^2.0.2",
     "merge-deep": "^3.0.0",
