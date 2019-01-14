@@ -97,7 +97,7 @@ Base model to include common plugins.
 
 **Params**
 
-* `store` **{Object}**: Cache store intance to use.
+* `store` **{Object}**: Cache store instance to use.
 
 ### [Maintainer](lib/models/maintainer.js#L25)
 
