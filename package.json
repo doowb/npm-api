@@ -4,6 +4,11 @@
   "version": "0.4.13",
   "homepage": "https://github.com/doowb/npm-api",
   "author": "Brian Woodward (https://github.com/doowb)",
+  "contributors": [
+    "0xflotus (https://github.com/0xflotus)",
+    "Brian Woodward (https://twitter.com/doowb)",
+    "Nachman Berkowitz (https://github.com/NachmanBerkowitz)"
+  ],
   "repository": "doowb/npm-api",
   "bugs": {
     "url": "https://github.com/doowb/npm-api/issues"
@@ -15,7 +20,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=10.0"
   },
   "scripts": {
     "test": "mocha"
