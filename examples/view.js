@@ -1,16 +1,26 @@
 'use strict';
 
-var co = require('co');
-var npm = require('../')();
-var view = npm.view('listAll');
+const NpmApi = require('../');
+const npm = new NpmApi();
 
-co(function* () {
-  var pkg = yield view.query({
+run()
+  .then(() => {
+    process.exit();
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+async function run() {
+  let view = npm.view('listAll');
+  let pkg = await view.query({
     // group_level: 4,
     startkey: JSON.stringify('micromatch'),
     endkey: JSON.stringify('micromatch')
   });
-  var val = pkg[0].value;
-  var latest = val.versions[val['dist-tags'].latest];
+
+  let val = pkg[0].value;
+  let latest = val.versions[val['dist-tags'].latest];
   console.log(latest);
-})
+}

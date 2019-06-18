@@ -1,26 +1,25 @@
-/*!
- * npm-api <https://github.com/doowb/npm-api>
- *
- * Copyright (c) 2016, Brian Woodward.
- * Licensed under the MIT License.
- */
-
 'use strict';
 
-var co = require('co');
-var npm = require('../')();
+const NpmApi = require('../');
+const npm = new NpmApi();
 
-var repo = npm.repo('micromatch');
-co(function* () {
+run()
+  .then(() => {
+    process.exit();
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
-  var downloads = yield repo.downloads();
+async function run() {
+  let repo = npm.repo('micromatch');
+  let downloads = await repo.downloads();
   console.log(downloads.length + ' days of downloads have been pulled for ' + repo.name);
   console.log();
 
-  console.log('total:', yield repo.total());
-  console.log('last 30 days:', yield repo.last(30));
-  console.log('last 7 days:', yield repo.last(7));
-  console.log('last day:', yield repo.last(1));
-
-  process.exit();
-});
+  console.log('total:', await repo.total());
+  console.log('last 30 days:', await repo.last(30));
+  console.log('last 7 days:', await repo.last(7));
+  console.log('last day:', await repo.last(1));
+}

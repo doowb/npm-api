@@ -25,26 +25,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
-    "JSONStream": "^1.2.1",
-    "base": "^0.11.1",
-    "base-option": "^0.8.4",
-    "base-plugins": "^0.4.13",
-    "clone-deep": "^0.2.4",
-    "co": "^4.6.0",
-    "data-store": "^0.16.1",
-    "download-stats": "^0.3.4",
-    "get-value": "^2.0.6",
-    "lazy-cache": "^2.0.2",
-    "merge-deep": "^3.0.0",
-    "moment": "^2.16.0",
-    "request": "^2.78.0",
-    "set-value": "^0.4.0"
-  },
-  "devDependencies": {
-    "gulp-format-md": "^0.1.11",
-    "mocha": "^3.1.2"
-  },
   "keywords": [
     "api",
     "base",
@@ -81,5 +61,17 @@
     "lint": {
       "reflinks": true
     }
+  },
+  "devDependencies": {
+    "gulp-format-md": "^2.0.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "JSONStream": "^1.3.5",
+    "clone-deep": "^4.0.1",
+    "download-stats": "^0.3.4",
+    "moment": "^2.24.0",
+    "paged-request": "^2.0.1",
+    "request": "^2.88.0"
   }
 }

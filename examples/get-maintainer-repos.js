@@ -1,17 +1,19 @@
-/*!
- * npm-api <https://github.com/doowb/npm-api>
- *
- * Copyright (c) 2016, Brian Woodward.
- * Licensed under the MIT License.
- */
-
 'use strict';
 
-var npm = require('../')();
-var maintainer = npm.maintainer('doowb');
-maintainer.repos()
-  .then(function (repos) {
-    console.log(repos);
-  }, function(err) {
+const NpmApi = require('../');
+const npm = new NpmApi();
+
+run()
+  .then(() => {
+    process.exit();
+  })
+  .catch(err => {
     console.error(err);
+    process.exit(1);
   });
+
+async function run() {
+  let maintainer = npm.maintainer('doowb');
+  let repos = await maintainer.repos();
+  console.log(repos);
+}
