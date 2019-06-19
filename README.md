@@ -1,6 +1,6 @@
 # npm-api [![NPM version](https://img.shields.io/npm/v/npm-api.svg?style=flat)](https://www.npmjs.com/package/npm-api) [![NPM monthly downloads](https://img.shields.io/npm/dm/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api) [![NPM total downloads](https://img.shields.io/npm/dt/npm-api.svg?style=flat)](https://npmjs.org/package/npm-api) [![Linux Build Status](https://img.shields.io/travis/doowb/npm-api.svg?style=flat&label=Travis)](https://travis-ci.org/doowb/npm-api)
 
-> Base class for retrieving data from the npm registry.
+> Node.js library for getting info from NPM’s API
 
 Please consider following this project's author, [Brian Woodward](https://github.com/doowb), and consider starring the project to show your :heart: and support.
 
@@ -397,7 +397,7 @@ You might also be interested in these projects:
 
 | **Commits** | **Contributor** |  
 | --- | --- |  
-| 112 | [doowb](https://github.com/doowb) |  
+| 113 | [doowb](https://github.com/doowb) |  
 | 1   | [0xflotus](https://github.com/0xflotus) |  
 | 1   | [NachmanBerkowitz](https://github.com/NachmanBerkowitz) |  
 
