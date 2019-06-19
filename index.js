@@ -14,6 +14,7 @@ let cache = null;
  * ```js
  * let npm = new NpmApi();
  * ```
+ * @name NpmApi
  * @api public
  */
 
@@ -50,6 +51,7 @@ class NpmApi {
    *
    * @param  {String} `name` Name of the couchdb view to work with.
    * @return {Object} `View` instance
+   * @name .view
    * @api public
    */
 
@@ -75,6 +77,7 @@ class NpmApi {
    * @param  {String} `name` Name of the couchdb list to work with.
    * @param  {String|Object} `view` Name or instance of a `view` to work with.
    * @return {Object} `List` instance
+   * @name .list
    * @api public
    */
 
@@ -108,6 +111,7 @@ class NpmApi {
    *
    * @param  {String} `name` Name of the repo as it's published to npm.
    * @return {Object} Instance of a `Repo` model to work with.
+   * @name .repo
    * @api public
    */
 
@@ -131,6 +135,7 @@ class NpmApi {
    *
    * @param  {String} `name` Npm username of the maintainer.
    * @return {Object} Instance of a `Maintainer` model to work with.
+   * @name .maintainer
    * @api public
    */
 

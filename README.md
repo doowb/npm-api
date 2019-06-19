@@ -20,17 +20,17 @@ var NpmApi = require('npm-api');
 
 ## API
 
-### [NpmApi](index.js#L27)
+### [NpmApi](index.js#L21)
 
 NpmApi constructor. Create an instance to work with maintainer and repository information.
 
 **Example**
 
 ```js
-var npm = new NpmApi();
+let npm = new NpmApi();
 ```
 
-### [.view](index.js#L65)
+### [.view](index.js#L58)
 
 Create a new instance of `View` or get an existing instance to work with npm couchdb views.
 
@@ -45,7 +45,7 @@ Create a new instance of `View` or get an existing instance to work with npm cou
 var view = npm.view('byUser');
 ```
 
-### [.list](index.js#L88)
+### [.list](index.js#L84)
 
 Create a new instance of `List` or get an existing instance to work with npm couchdb list.
 
@@ -61,7 +61,7 @@ Create a new instance of `List` or get an existing instance to work with npm cou
 var list = npm.list('sortCount', 'byUser');
 ```
 
-### [.repo](index.js#L119)
+### [.repo](index.js#L118)
 
 Create an instance of a `repo` to work with.
 
@@ -93,7 +93,7 @@ var maintainer =  npm.maintainer('doowb');
 
 ## Models
 
-### [BaseModel](lib/models/base.js#L24)
+### [BaseModel](lib/models/base.js#L17)
 
 Base model to include common plugins.
 
@@ -101,22 +101,21 @@ Base model to include common plugins.
 
 * `store` **{Object}**: Cache store instance to use.
 
-### [Maintainer](lib/models/maintainer.js#L25)
+### [Maintainer](lib/models/maintainer.js#L19)
 
 Maintainer constructor. Create an instance of an npm maintainer by maintainer name.
 
 **Params**
 
 * `name` **{String}**: Name of the npm maintainer to get information about.
-* `store` **{Object}**: Optional cache store instance for caching results. Defaults to a memory store.
 
 **Example**
 
 ```js
-var maintainer = new Maintainer('doowb');
+const maintainer = new Maintainer('doowb');
 ```
 
-### [.repos](lib/models/maintainer.js#L56)
+### [.repos](lib/models/maintainer.js#L43)
 
 Get the repositories owned by this maintainer.
 
@@ -133,22 +132,21 @@ maintainer.repos()
   });
 ```
 
-### [Repo](lib/models/repo.js#L26)
+### [Repo](lib/models/repo.js#L18)
 
 Repo constructor. Create an instance of an npm repo by repo name.
 
 **Params**
 
 * `name` **{String}**: Name of the npm repo to get information about.
-* `store` **{Object}**: Optional cache store instance for caching results. Defaults to a memory store.
 
 **Example**
 
 ```js
-var repo = new Repo('micromatch');
+const repo = new Repo('micromatch');
 ```
 
-### [.package](lib/models/repo.js#L57)
+### [.package](lib/models/repo.js#L41)
 
 Get the repo's published package.json.
 
@@ -165,7 +163,7 @@ repo.package()
   });
 ```
 
-### [.version](lib/models/repo.js#L89)
+### [.version](lib/models/repo.js#L73)
 
 Get the repo's published package.json value for the specified version.
 
@@ -185,7 +183,7 @@ repo.version('0.2.0')
   });
 ```
 
-### [.dependencies](lib/models/repo.js#L118)
+### [.dependencies](lib/models/repo.js#L101)
 
 Get the repo's dependencies for the specified version.
 
@@ -205,7 +203,7 @@ repo.dependencies()
   });
 ```
 
-### [.devDependencies](lib/models/repo.js#L138)
+### [.devDependencies](lib/models/repo.js#L122)
 
 Get the repo's devDependencies for the specified version.
 
@@ -225,7 +223,7 @@ repo.devDependencies()
   });
 ```
 
-### [.prop](lib/models/repo.js#L159)
+### [.prop](lib/models/repo.js#L144)
 
 Get the specified property from the repo's package.json for the specified version.
 
@@ -248,7 +246,7 @@ repo.prop('author')
 
 ## Registry queries
 
-### [View](lib/view.js#L26)
+### [View](lib/view.js#L20)
 
 View constructor. Create an instance of a view associated with a couchdb view in the npm registry.
 
@@ -260,10 +258,10 @@ View constructor. Create an instance of a view associated with a couchdb view in
 **Example**
 
 ```js
-var view = new View('dependedUpon');
+const view = new View('dependedUpon');
 ```
 
-### [.query](lib/view.js#L51)
+### [.query](lib/view.js#L43)
 
 Query the couchdb view with the provided parameters.
 
@@ -275,15 +273,14 @@ Query the couchdb view with the provided parameters.
 **Example**
 
 ```js
-view.query({ group_level: 2, startkey: JSON.stringify(['micromatch']), endkey: JSON.stringify(['micromatch', {}])})
-  .then(function(results) {
-    console.log(results);
-  }, function(err) {
-    console.log(err);
-  });
+let results = await view.query({
+  group_level: 2,
+  startkey: JSON.stringify(['micromatch']),
+  endkey: JSON.stringify(['micromatch', {}])
+});
 ```
 
-### [.stream](lib/view.js#L91)
+### [.stream](lib/view.js#L85)
 
 Query the couchdb view with the provided parameters and return a stream of results.
 
@@ -295,22 +292,26 @@ Query the couchdb view with the provided parameters and return a stream of resul
 **Example**
 
 ```js
-view.stream({ group_level: 2, startkey: JSON.stringify(['micromatch']), endkey: JSON.stringify(['micromatch', {}])})
-  .on('data', function(data) {
-    console.log(data);
-  });
+view.stream({
+  group_level: 2,
+  startkey: JSON.stringify(['micromatch']),
+  endkey: JSON.stringify(['micromatch', {}])
+})
+.on('data', (data) => {
+  console.log(data);
+});
 ```
 
-### [.url](lib/view.js#L105)
+### [.url](lib/view.js#L99)
 
 Build a formatted url with the provided parameters.
 
 **Params**
 
-* `params` **{Object}**: URL query parameters.
+* `query` **{Object}**: URL query parameters.
 * `returns` **{String}**: formatted url string
 
-### [List](lib/list.js#L27)
+### [List](lib/list.js#L21)
 
 List constructor. Create an instance of a list associated with a couchdb list in the npm registry.
 
@@ -323,10 +324,10 @@ List constructor. Create an instance of a list associated with a couchdb list in
 **Example**
 
 ```js
-var list = new List('dependedUpon', view);
+let list = new List('dependedUpon', view);
 ```
 
-### [.query](lib/list.js#L53)
+### [.query](lib/list.js#L41)
 
 Query the couchdb list with the provided parameters.
 
@@ -338,21 +339,16 @@ Query the couchdb list with the provided parameters.
 **Example**
 
 ```js
-list.query({ key: JSON.stringify(['micromatch']) })
-  .then(function(results) {
-    console.log(results);
-  }, function(err) {
-    console.log(err);
-  });
+let results = await list.query({ key: JSON.stringify(['micromatch']) })
 ```
 
-### [.url](lib/list.js#L80)
+### [.url](lib/list.js#L65)
 
 Build a formatted url with the provided parameters.
 
 **Params**
 
-* `params` **{Object}**: URL query parameters.
+* `query` **{Object}**: URL query parameters.
 * `returns` **{String}**: formatted url string
 
 ## About
@@ -361,6 +357,8 @@ Build a formatted url with the provided parameters.
 <summary><strong>Contributing</strong></summary>
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
+
+Please read the [contributing guide](.github/contributing.md) for advice on opening issues, pull requests, and coding standards.
 
 </details>
 
@@ -399,7 +397,7 @@ You might also be interested in these projects:
 
 | **Commits** | **Contributor** |  
 | --- | --- |  
-| 106 | [doowb](https://github.com/doowb) |  
+| 112 | [doowb](https://github.com/doowb) |  
 | 1   | [0xflotus](https://github.com/0xflotus) |  
 | 1   | [NachmanBerkowitz](https://github.com/NachmanBerkowitz) |  
 
@@ -418,4 +416,4 @@ Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on June 17, 2019._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on June 19, 2019._
