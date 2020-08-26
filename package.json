@@ -71,7 +71,7 @@
     "clone-deep": "^4.0.1",
     "download-stats": "^0.3.4",
     "moment": "^2.24.0",
-    "paged-request": "^2.0.1",
-    "request": "^2.88.0"
+    "node-fetch": "^2.6.0",
+    "paged-request": "^2.0.1"
   }
 }
