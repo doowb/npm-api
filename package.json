@@ -1,7 +1,7 @@
 {
   "name": "npm-api",
   "description": "Node.js library for getting info from NPM’s API",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/doowb/npm-api",
   "author": "Brian Woodward (https://github.com/doowb)",
   "contributors": [
