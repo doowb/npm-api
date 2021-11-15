@@ -1,6 +1,6 @@
 'use strict';
 
-const NpmApi = require('../');
+const NpmApi = require('../index.js');
 const npm = new NpmApi();
 
 run()

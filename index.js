@@ -1,9 +1,9 @@
 'use strict';
 
-const List = require('./lib/list');
-const View = require('./lib/view');
-const Repo = require('./lib/models/repo');
-const Maintainer = require('./lib/models/maintainer');
+const List = require('./lib/list.js');
+const View = require('./lib/view.js');
+const Repo = require('./lib/models/repo.js');
+const Maintainer = require('./lib/models/maintainer.js');
 
 const define = (obj, name, value) => Reflect.defineProperty(obj, name, { value });
 let cache = null;
@@ -50,7 +50,7 @@ class NpmApi {
    * ```
    *
    * @param  {String} `name` Name of the couchdb view to work with.
-   * @return {Object} `View` instance
+   * @return {View} `View` instance
    * @name .view
    * @api public
    */
@@ -76,7 +76,7 @@ class NpmApi {
    *
    * @param  {String} `name` Name of the couchdb list to work with.
    * @param  {String|Object} `view` Name or instance of a `view` to work with.
-   * @return {Object} `List` instance
+   * @return {List} `List` instance
    * @name .list
    * @api public
    */
@@ -110,7 +110,7 @@ class NpmApi {
    * ```
    *
    * @param  {String} `name` Name of the repo as it's published to npm.
-   * @return {Object} Instance of a `Repo` model to work with.
+   * @return {Repo} Instance of a `Repo` model to work with.
    * @name .repo
    * @api public
    */
@@ -134,18 +134,18 @@ class NpmApi {
    * ```
    *
    * @param  {String} `name` Npm username of the maintainer.
-   * @return {Object} Instance of a `Maintainer` model to work with.
+   * @return {Maintainer} Instance of a `Maintainer` model to work with.
    * @name .maintainer
    * @api public
    */
 
   maintainer(name) {
-    let maintainers = cache.get('maintainers');
+    const maintainers = cache.get('maintainers');
     if (maintainers.has(name)) {
       return maintainers.get(name);
     }
 
-    let maintainer = new Maintainer(name);
+    const maintainer = new Maintainer(name);
     maintainers.set(name, maintainer);
     return maintainer;
   }
